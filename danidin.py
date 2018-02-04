@@ -19,14 +19,14 @@ class PeopleSet:
         self.call_count = 0
 
     def find_danidin(self):
-        for i in range(1, self.size + 1):
+        for i in range(self.size):
             burned = False
-            for j in range(1, self.size + 1):
-                if (j != i) and ((not self.familiarity(i, j)) or self.familiarity(j, i)):
+            for j in range(self.size):
+                if (j != i) and ((not self.familiarity_matrix[i][j]) or self.familiarity_matrix[j][i]):
                     burned = True
                     break
             if not burned:
-                return i
+                return i + 1
         return None
 
     def familiarity(self, i, j):
@@ -47,6 +47,6 @@ def main():
     # Note that you need to use the method people.familiarity() to check if i knows j. (Remember that for 1000 people, i and j should be between 1-1000, not 0-999)
     # After you're done, you can call people.number_of_familiarity_calls() to see how many times people.familiarity() was called.
     # You can also call people.find_danidin() to see the right answer. That function returns the number of "danidin" person, or None if no "danidin" exists.
-    
+
 
 main()
