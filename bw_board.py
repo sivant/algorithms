@@ -9,6 +9,9 @@ class WB_Board:
     def get_cell(self, row, col):
         return self.matrix[row][col]
 
+    def __getitem__(self, item):
+        return self.matrix[item]
+
     def toggle_row(self, row):
         for i in range(self.size):
             self.matrix[row][i] = 1 - self.matrix[row][i]
@@ -59,3 +62,5 @@ def main():
         print('The board can be made all-white')
     else:
         print('The board cannot be made all-white')
+
+main()
