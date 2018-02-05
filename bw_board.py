@@ -6,6 +6,9 @@ class WB_Board:
         self.matrix = [[0 for i in range(size)] for j in range(size)]
         self.size = size
 
+    def get_cell(self, row, col):
+        return self.matrix[row][col]
+
     def toggle_row(self, row):
         for i in range(self.size):
             self.matrix[row][i] = 1 - self.matrix[row][i]
