@@ -22,39 +22,35 @@ def bubble_sort(lst):
                 lst[index] = lst[index+1]
                 lst[index+1] = val
 
-def merge(lst, lst2):
+def merge(lst1, lst2):
     lst3 = []
-    for index in range(len(lst)):
-        for index in range(len(lst2)):
-            if lst[index] < lst2[index]:
-                lst3.append(lst[index])
-            elif lst[index] > lst2[index]:
-                lst3.append(lst2[index])
-            else:
-                lst3.append(lst[index])
-                lst3.append(lst2[index])
-    print(lst3)
+    index1 = 0
+    index2 = 0
+    while index1 < len(lst1) and index2 < len(lst2):
+        if lst1[index1] < lst2[index2]:
+            lst3.append(lst1[index1])
+            index1 += 1
+        else:
+            lst3.append(lst2[index2])
+            index2 += 1
+    if index1 == len(lst1):
+        lst3.extend(lst2[index2:])
+    else:
+        lst3.extend(lst1[index1:])
+    return lst3
 
 
+for i in range(100):
+    l1 = gen_sorted_list(random.randint(0, 20))
+    l2 = gen_sorted_list(random.randint(0, 20))
+    l3 = merge(l1, l2)
+    print(l1)
+    print(l2)
+    print(l3)
+    print()
+    assert is_sorted(l3), "the merged list is not sorted"
+    assert len(l3) == (len(l1) + len(l2)), "the merged list length is wrong"
 
-
-
-
-
-lstt = [1, 3, 4, 7]
-lstt2 = [2, 5, 6]
-
-merge(lstt, lstt2)
-
-
-
-
-
-list4 = [21, 41, 45, 1, 11, 2, 12, 10, 91, 11]
-
-
-#bubble_sort(list2)
-#print(list2)
 
 
 
@@ -64,19 +60,19 @@ list4 = [21, 41, 45, 1, 11, 2, 12, 10, 91, 11]
 
 
 
-my_list = [21, 4, 1, 3, 6, 56, 8, 0]
-sort(my_list)
+#my_list = [21, 4, 1, 3, 6, 56, 8, 0]
+#sort(my_list)
 #print(my_list)
 
 
 
 
 
-l1 = gen_list(20)
-print(l1)
-print('The list is {}sorted'.format('' if is_sorted(l1) else 'not '))
+#l1 = gen_list(20)
+#print(l1)
+#print('The list is {}sorted'.format('' if is_sorted(l1) else 'not '))
 
-l2 = gen_sorted_list(10)
-print(l2)
-print('The list is {}sorted'.format('' if is_sorted(l2) else 'not '))
+#l2 = gen_sorted_list(10)
+#print(l2)
+#print('The list is {}sorted'.format('' if is_sorted(l2) else 'not '))
 

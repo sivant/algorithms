@@ -46,6 +46,8 @@ def can_board_be_whitened(board):
     :return: True of False
     """
     # write your code here
+
+    
     pass
 
 
